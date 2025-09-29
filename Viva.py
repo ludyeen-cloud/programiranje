@@ -18,7 +18,7 @@ if opcija == 1:
     print(f"Napon je: {Napon}V")
 elif opcija == 2:
     print("Izračun optora struje")
-    Napon=int(Input("Upiši napon:"))
+    Napon=int(input("Upiši napon:"))
     Jakost=int(input("Upiši jakost struje:"))
     Otpor= Napon/Jakost
     printrint(f"Otpor je: {Otpor}ohm")
@@ -52,6 +52,7 @@ jakost=int(input("Upisi jakost"))
 Otpor=int(input("Upisi otpor"))
 Napon=jakost*Otpor
 print("Napon je",Napon)
+
 
 
 

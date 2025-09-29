@@ -5,8 +5,10 @@ print("-------------------")
 print("1. Izračun napona struje")
 print("2. Izračun otpora struje")
 print("3. Izračun jakosti struje")
+print("4. Izračun otpora u serijskom spoju")
+print("5. Izračun otpora u paralernom spoju")
 print("--------------------")
-opcija =int(input(print("izaberite operaciju(1/2/3):")))
+opcija =int(input(print("izaberite operaciju(1/2/3/4/5):")))
 #Struktura grananja
 if opcija == 1:
     print("Izračun napona struje ")
@@ -50,5 +52,6 @@ jakost=int(input("Upisi jakost"))
 Otpor=int(input("Upisi otpor"))
 Napon=jakost*Otpor
 print("Napon je",Napon)
+
 
 

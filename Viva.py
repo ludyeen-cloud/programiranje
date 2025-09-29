@@ -38,7 +38,7 @@ elif opcija == 5:
     print("Izračun otpora u paralernom spoju")
     Otpornik1=int(input("Upiši otpor prvog otpornika"))
     Otpornik2=int(input("Upiši otpor drugog otpornika"))
-    Otpornik12=1/Otpornik1+1/Otpornik2
+    Otpornik12=(Otpornik1 * Otpornik2) / (Otpornik1 + Otpornik2) 
     print(f"Ukupan otpor je:{Otpornik12}")
 else:
     print("Pogrešan unos")
@@ -50,4 +50,5 @@ jakost=int(input("Upisi jakost"))
 Otpor=int(input("Upisi otpor"))
 Napon=jakost*Otpor
 print("Napon je",Napon)
+
 

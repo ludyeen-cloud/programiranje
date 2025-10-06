@@ -1,0 +1,38 @@
+# Izbornik za kalkulator
+while True:
+    print("--------------------")
+    print("Izbornik za kalkulator")
+    print("-------------------")
+    print("1. Volti (V) -> Milivolti (mV)")
+    print("2. Ohmi (Ω) -> Kiloohmi (kΩ)")
+    print("3.  Amperi (A) -> Miliamperi (mA)")
+    print("0. Prekid programa")
+    print("--------------------")
+    opcija =float(input(print("izaberite operaciju(1/2/3/0):")))
+#Struktura grananja
+    #Pretvaranje volti u milivolte
+    if opcija == 1:
+        print("Pretvaranje volti u milivolte")
+        Volti=float(input("Upiši napon u voltima:"))
+        Milivolti=Volti*1000
+        print(f"To je: {Milivolti}mV")
+    #Pretvaranje ohma u kiloohme
+    elif opcija == 2:
+        print("Pretvaranje ohma u kiloohme")
+        Ohmi=float(input("Upiši otpor otpornika u ohmima:"))
+        Kiloohmi=Ohmi/1000
+        print(f"To je: {Kiloohmi}kΩ")
+    #Pretvaranje ampera u miliampere
+    elif opcija == 3:
+        print("Pretvaranje ampera u miliampere")
+        Amperi=float(input("Upiši jakost struje u amperima:"))
+        Miliamper=Amperi*1000
+        print(f"To je: {Miliamper}mA")
+    #Prekid programa
+    elif opcija == 0:
+        print("Prekid programa")
+        break # Ova naredba prekida while petlju!
+    #Pogrešan unos
+    else:
+        print("Pogrešan unos")
+        print("Pogrešan unos")

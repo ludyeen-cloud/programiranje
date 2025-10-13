@@ -35,4 +35,3 @@ while True:
     #Pogrešan unos
     else:
         print("Pogrešan unos")
-        print("Pogrešan unos")

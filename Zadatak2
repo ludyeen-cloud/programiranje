@@ -1,0 +1,7 @@
+otpornici=[100,220,330 ]
+ukupni_otpor=0
+print("Zbrajam otpornike: ")
+for jedan_otpornik in otpornici:
+    print(f" Dodajem: {"jedan_otpornik"}")
+    ukupni_otpor+=jedan_otpornik 
+print(f"Ukupni serijeski spoj je:{ukupni_otpor} ohma")

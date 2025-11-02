@@ -1,0 +1,7 @@
+otpornik=[]
+otpornik.append(100)
+otpornik.append(220)
+otpornik.append(330)
+print(otpornik)
+print(len(otpornik))
+print(otpornik[0])

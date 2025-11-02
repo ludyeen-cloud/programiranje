@@ -1,0 +1,105 @@
+def izracunaj_sumu_liste(lista_vrijednosti):
+    suma = 0
+    for vrijednost in lista_vrijednosti:
+        suma += vrijednost
+    return suma
+
+def ispis_izbornik():
+    print("----------------------")
+    print("Izbornik za kalkulator")
+    print("----------------------")
+    print("1. Izračun napona struje")
+    print("2. Izračun otpora struje")
+    print("3. Izračun jakosti struje")
+    print("4. Izračun ukupnog serijskog spoja (N otpornika)")
+    print("0. Izlaz")
+    print("----------------------")
+
+def izracun_napona(jakost, otpor):
+    return jakost * otpor
+
+def izracun_otpora(napon, jakost):
+    return napon / jakost
+
+def izracun_jakosti(napon, otpor):
+    return napon / otpor
+
+
+while True:
+    ispis_izbornik()
+    try:
+        Opcija = int(input("Izaberite operaciju (1 / 2 / 3 / 4 / 0): "))
+    except ValueError:
+        print("Pogrešan unos: molimo unesite cijeli broj opcije (0-4).")
+        continue
+
+    if Opcija == 1:
+        print("Izračun napona struje")
+        try:
+            jakost = float(input("Upiši jakost struje (A): "))
+            otpor = float(input("Upiši otpor (Ω): "))
+            napon = izracun_napona(jakost, otpor)
+        except ValueError:
+            print("Greška: unesite ispravne brojeve za jakost i otpor.")
+            continue
+        print(f"Napon struje je: {napon} V")
+
+    elif Opcija == 2:
+        print("Izračun otpora struje")
+        try:
+            napon = float(input("Upiši napon (V): "))
+            jakost = float(input("Upiši jakost struje (A): "))
+            otpor = izracun_otpora(napon, jakost)
+        except ValueError:
+            print("Greška: unesite ispravne brojeve za napon i jakost.")
+            continue
+        except ZeroDivisionError:
+            print("Ne mogu dijeliti s nulom! Jakost ne smije biti 0.")
+            continue
+        print(f"Otpor je: {otpor} Ohm")
+
+    elif Opcija == 3:
+        print("Izračun jakosti struje")
+        try:
+            napon = float(input("Upiši napon (V): "))
+            otpor = float(input("Upiši otpor (Ω): "))
+            jakost = izracun_jakosti(napon, otpor)
+        except ValueError:
+            print("Greška: unesite ispravne brojeve za napon i otpor.")
+            continue
+        except ZeroDivisionError:
+            print("Ne mogu dijeliti s nulom! Otpor ne smije biti 0.")
+            continue
+        print(f"Jakost struje je: {jakost} A")
+
+    elif Opcija == 4:
+        print("\n--- Izračun serijskog otpora (N otpornika) ---")
+        lista_otpora = []
+        while True:
+            print(f"   Trenutni otpornici u listi: {[f'{x:.2f} Ω' for x in lista_otpora]}")
+            unos_str = input("Unesite vrijednost otpora (ili 'kraj' za izračun): ")
+            if unos_str.lower() == 'kraj':
+                break
+            try:
+                vrijednost = float(unos_str)
+                if vrijednost <= 0:
+                    print("GREŠKA: Otpor mora biti pozitivan broj.")
+                else:
+                    lista_otpora.append(vrijednost)
+                    print(f"   -> Dodan otpornik: {vrijednost} Ω")
+            except ValueError:
+                print("GREŠKA: Unos mora biti ispravan broj ili riječ 'kraj'.")
+
+        if len(lista_otpora) > 0:
+            ukupni_otpor = izracunaj_sumu_liste(lista_otpora)
+            print(f"\nREZULTAT: Ukupan serijski otpor za {len(lista_otpora)} otpornika je: {ukupni_otpor:.4f} Ω")
+        else:
+            print("\nNiste unijeli nijedan otpornik. Povratak na izbornik.")
+
+        input("\nPritisnite Enter za povratak na glavni izbornik...")
+
+    elif Opcija == 0:
+        print("Hvala na korištenju kalkulatora.")
+        break
+    else:
+        print("Pogrešan unos")
